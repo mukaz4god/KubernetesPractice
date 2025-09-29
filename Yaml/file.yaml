@@ -1,0 +1,19 @@
+shopping:
+  - item: Apples
+    quantity: 4
+    price_per_unit: 0.5
+  - item: Bananas
+    quantity: 6
+    price_per_unit: 0.3
+  - item: Carrots
+    quantity: 10
+    price_per_unit: 0.2
+
+purchased:
+    fruit:
+      apples: 1
+      Bananas: 2
+    needToBut:
+      - coffee
+      - sugar
+      - milk

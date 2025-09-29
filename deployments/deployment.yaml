@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  my-name
+  labels:
+    name:  my-name
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        name:  my-name
+    spec:
+      containers:
+      - image:  ipedrazas/docmock
+        name:  my-name
+        resources:
+          limits:
+            cpu: "20m"
+            memory: "55M"
+        env:
+        - name:  ENVVARNAME
+          value:  ENVVARVALUE       
+        ports:
+        - containerPort:  5000
+          name:  my-name
+      restartPolicy: Always
+      imagePullPolicy: Always
