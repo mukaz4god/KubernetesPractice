@@ -1,30 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  mydeployment
+  name: challenge
   labels:
-    name:  mydeployment
+    name: challenge
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
-      server:  nginx
+      os: ubuntu
   strategy:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
-    type: RollingUpdate
   template:
     metadata:
       labels:
-        server:  nginx
+       os: ubuntu
     spec:
       containers:
-      - name: nginxcontainer
-        image: nginx:latest
+      - name: ubuntucontainer
+        image: ubuntu:latest
         resources:
           limits:
-            memory: "128Mi"
+            memory: "500Mi"
             cpu: "500m"
         ports:
-          - containerPort: 80
+        - containerPort: 8080
